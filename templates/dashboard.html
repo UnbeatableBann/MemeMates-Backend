@@ -1,0 +1,11 @@
+<h2>Welcome, {{ username }}!</h2>
+<form action="{{ url_for('post') }}" method="POST">
+    <input type="text" name="content" placeholder="Share something...">
+    <button type="submit">Post</button>
+</form>
+<ul>
+    {% for post in posts %}
+        <li><strong>{{ post.username }}</strong>: {{ post.content }}</li>
+    {% endfor %}
+</ul>
+<a href="{{ url_for('logout') }}">Logout</a>
